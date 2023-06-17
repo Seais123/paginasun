@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunCenter Company</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imagenes/sun-solid-24.png" type="image/x-icon">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    :root{
+        scroll-behavior: smooth;
+    }
+
+    .contenedor{
+        width: 90%;
+        max-width: 1200px;
+        overflow: hidden;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    header{
+        height: 100vh; 
+        background-image: linear-gradient(120deg, rgba(132, 250, 175, 0.5) 0%, rgba(143, 210, 244, 0.5) 100%), url(../imagenes/jj-ying-8bghKxNU1j0-unsplash.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position:center ;
+    }
+
+    .head{
+        text-align: center;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+    }
+
+    .hamburger{
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background: #fff;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    }
+
+    .menunavegacion{
+        position: fixed;
+        top:0;
+        right: 0;
+        width: 30vw;
+        height: 100%;
+        background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: transform .3s ease-in-out;
+        transform: translate(110%);
+        box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    }
+
+    .spread{
+        transform: translate(0);
+    }
+
+    .menunavegacion a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .titulo{
+        font-size: 60px;
+        margin-bottom: 15px;
+    }
+
+    .copy{
+        font-weight: 300;
+        font-size: 25px;
+    }
+
+    /* Nuestro Servicio */
+
+    .subtitulo{
+        text-align: center;
+        font-weight: 300;
+        color: #9f8ad0;
+        margin-bottom: 40px;
+        font-size: 40px;
+    }
+
+    .contenedor-servicio{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .contenedor-servicio img{
+        width: 40%;
+    }
+
+    .checklist-servicio{
+        width: 45%;
+    }
+
+    .services{
+        margin-bottom: 20px;
+    }
+
+    .n-services{
+        margin-bottom: 7px;
+        color: #9f8ad0;
+    }
+
+    .number{
+        display: inline-block;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        font-weight: 700;
+        line-height: 30px;
+        margin-right: 5px;
+    }
+
+    .gallery{
+        background: #f2f2f2;
+    }
+
+    .contenedor-galeria{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .img-galeria{
+        object-fit: cover;
+        width: 30%;
+        display: block;
+        margin-bottom: 15px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+        cursor: pointer;
+    }
+
+    .imagen-light{
+        position: fixed;
+        background: rgba(0, 0, 0,.6);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(100%);
+        transition: transform .2s ease-in-out;
+    }
+
+    .show{
+        transform: translate(0);
+    }
+
+    .agregar-imagen{
+        object-fit: cover;
+        width: 60%;
+        border-radius: 10px;
+        transform: scale(0);
+        transition: transform .3s .2s;
+    }
+
+    .showImage{
+        transform: scale(1) ;
+    }
+
+    .close{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        cursor: pointer;
+    }
+
+    .experts{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .cont-experts{
+        width: 30%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .cont-experts img{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .n-expert{
+        display: inline-block;
+        margin-top: 20px;
+        width: 100%;
+        font-weight: 400;
+    }
+
+    /* footer */
+
+    footer{
+        background: #9f8ad0;
+        padding-bottom: 0.1px;
+    }
+
+    .footer-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .contact-us{
+        width: 40%;
+        color: #fff;
+
+    }
+
+    .brand{
+        font-weight: 500;
+        font-size: 40px;
+    }
+
+    .brand+p{
+        font-weight: 500;
+    }
+
+    .social-media{
+        /* width: 50%; */
+        display: flex;
+        justify-content: flex-end;
+        padding-inline-end: 10px;
+    }
+
+    .social-media-icon{
+        display: inline-block;
+        margin-left: 20px;
+        width: 60px;
+        height: 60px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+    }
+
+    .social-media-icon:hover{
+        background: #fff;
+        color: #764ba2;
+    }
+
+    .social-media-icon i{
+        font-size: 30px;
+        line-height: 60px;
+    }
+
+    .line{
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 2px;
+        background: #fff;
+        margin-bottom: 60px;
+    }
+
+    @media screen and (max-width:800px){
+        .menunavegacion{
+            width: 50vw;
+        }
+
+        .titulo{
+            font-size: 40px;
+        }
+
+        .contenedor-servicio img{
+            width: 80%;
+            margin-bottom: 40px;
+        }
+
+        .checklist-servicio{
+            width: 80%;
+        }
+
+        .services{
+            margin-bottom: 30px;
+        }
+
+        .agregar-imagen{
+            width: 80%;
+        }
+
+        .img-galeria{
+            width: 45%;
+        }
+
+        .cont-experts{
+            width: 80%;
+        }
+
+        .footer-content{
+            justify-content: center;
+        }
+
+        .social-media{
+            width: 80%;
+            justify-content: space-evenly;
+        }
+
+        .social-media-icon{
+            margin-left: 0;
+        }
+
+        .social-media i{
+            margin-left: 0;
+        }
+
+        .contact-us{
+            text-align: center;
+            width: 80%;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media screen and (max-width:500px) {
+        .menunavegacion{
+            width: 65vw;
+        }
+
+        .hamburger{
+            top: 20px;
+            right: 20px;
+        }
+
+        .titulo{
+            font-size: 30px;
+        }
+
+        .subtitulo{
+            font-size: 30px;
+        }
+
+        .agregar-imagen{
+            width: 95%;
+        }
+
+        .img-galeria{
+            width: 95%;
+        }
+
+        .social-media{
+            width: 100%;
+        }
+
+        .contact-us{
+            width: 90%;
+        }
+    }
+
+    .copyR{
+        text-align: end;
+        padding-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #ffffff ;
+        font-size: 12px;
+        cursor: -webkit-grab;
+        user-select: none;
+    }
+    </style>
+</head>
+<body>
+    <header class="header" id="inicio">
+        <img src="imagenes/hamburguesa.svg" alt="" class="hamburger">
+        <nav class="menunavegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicio">Servicio</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#experto">Expertos</a>                
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="contenedor head">
+            <h1 class="titulo">Convertimos tus sueños en realidad</h1>
+            <p class="copy">Innovamos tu vida</p>
+        </div>
+    </header>
+    <main>
+        <section class="contenedor" id="servicio">
+            <h2 class="subtitulo">Nuestro servicio</h2>
+            <div class="contenedor-servicio">
+                <img src="imagenes/Checklist _Isometric.svg" alt="">
+                <div class="checklist-servicio">
+                    <div class="services">
+                        <h3 class="n-services"><span class="number">1</span>Instalacion Servidores</h3>
+                        <p>Ofrecemos una alta disponibilidad de integracion de servicios a servidores Windows y Linux con la mejor optimizacion de procesos.</p>
+                    </div>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number">2</span>Servicios</h3>
+                        <p>Nuestra empresa se especializa en ofrecer soluciones tecnológicas personalizadas y de vanguardia para empresas de todos los tamaños. Ya sea que necesites mejorar la eficiencia operativa, aumentar la productividad o implementar soluciones innovadoras, estamos aquí para ayudarte.</p>
+                    </div>
+                    <div class="services">
+                        <h3 class="n-services"><span class="number">3</span>Mantenimiento</h3>
+                        <p>Nuestro objetivo principal es garantizar que tus sistemas y equipos tecnológicos funcionen de manera óptima y sin interrupciones. Nuestro equipo altamente capacitado está listo para brindarte asistencia técnica y soluciones rápidas en caso de cualquier problema que puedas enfrentar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery" id="portafolio">
+            <div class="contenedor">
+                <h2 class="subtitulo">Galeria</h2>
+                <div class="contenedor-galeria">
+                    <img src="imagenes/imgix-pgdaAwf6IJg-unsplash.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/nasa-Q1p7bh3SHj8-unsplash.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/kirill-sh-eVWWr6nmDf8-unsplash.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/jj-ying-8bghKxNU1j0-unsplash.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/jordan-harrison-40XgDxBfYXM-unsplash.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/taylor-vick-M5tzZtFCOfs-unsplash.jpg" alt="" class="img-galeria">
+                </div>
+            </div>
+        </section>
+        <section class="imagen-light">
+            <img src="imagenes/close.svg" alt="" class="close">
+            <img src="imagenes/vale-5TfjVPWevE0-unsplash (1).jpg" alt="" class="agregar-imagen">
+        </section>
+        <section class="contenedor" id="experto">
+            <h2 class="subtitulo">Expertos en:</h2>
+            <section class="experts">
+                <div class="cont-experts">
+                    <img src="imagenes/Pie chart _Isometric.svg" alt="">
+                    <h3 class="n-expert">Analytics</h3>
+                </div>
+                <div class="cont-experts">
+                    <img src="imagenes/Search Engine_Isometric.svg" alt="">
+                    <h3 class="n-expert">SEO</h3>
+                </div>
+                <div class="cont-experts">
+                    <img src="imagenes/Security_Isometric.svg" alt="">
+                    <h3 class="n-expert">Security</h3>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="contact-us">
+                <h2 class="brand">SunCenter Company</h2>
+                <p>Somos expertos en la creacion de tus sueños</p>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="copyR" id="CopyJs">
+                <p class="copyStyle"> © SunCenter Company Copyright 2023 - 2024</p>
+        </div>
+    </footer>
+    <!-- MENU -->
+    <script>
+        const hamburguer = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menunavegacion');
+        
+        // console.log(menu);
+        // console.log(hamburguer);
+        
+        hamburguer.addEventListener('click', ()=>{
+            menu.classList.toggle("spread")
+        })
+        
+        window.addEventListener('click', e=>{
+            if(menu.classList.contains('spread') && e.target != menu && e.target !=hamburguer ){
+                menu.classList.toggle("spread")    
+            }
+        })
+    </script>
+    <!-- GALERIA -->
+    <script>
+    const imagenes = document.querySelectorAll('.img-galeria');
+    const imagenesLight = document.querySelector('.agregar-imagen');
+    const contenedorLight = document.querySelector('.imagen-light');
+    const hamburguer1 = document.querySelector('.hamburger');
+
+    console.log(imagenes);
+    console.log(imagenesLight);
+    console.log(contenedorLight);
+
+    imagenes.forEach(imagen=>{
+        imagen.addEventListener('click', ()=>{
+            aparecerImagen(imagen.getAttribute('src'))
+        })
+    })
+
+    contenedorLight.addEventListener('click', (e)=>{
+        if(e.target!== imagenesLight){
+            contenedorLight.classList.toggle('show')
+            imagenesLight.classList.toggle('showImage')
+            hamburguer1.style.opacity='1'
+        }
+    })
+
+    const aparecerImagen = (imagen)=>{
+        imagenesLight.src = imagen;
+        contenedorLight.classList.toggle('show')
+        imagenesLight.classList.toggle('showImage')
+        hamburguer1.style.opacity='0'
+    }
+    </script>
+</body>
+</html>
